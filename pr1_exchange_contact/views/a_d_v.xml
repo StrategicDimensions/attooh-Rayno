@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+		 <record model="ir.ui.view" id="v_pr1_exchange_contact_a_d_frm">
+                <field name="name">pr1_exchange_contact.a_d_form</field>
+                <field name="model">pr1_exchange_contact.a_d</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                 <form string="A_D">
+                 	<group>
+	                    <group string="">
+	                  <field name="a_d_loc" required="1"/>
+	                  <field name="a_d_key" required="0"/>
+	                    </group>
+	                    <group string="">
+	                        <field name="a_d_un" required="0"/>
+	                        <field name="a_d_mu" required="0"/>
+	                    </group>
+	                </group>
+                 
+	                <notebook>
+		                <page string="General">
+		                        
+		                </page>
+				   	</notebook>
+				 </form>  	
+               	</field>
+            </record>    
+            <record model="ir.ui.view" id="v_pr1_exchange_contact_a_d_tre">
+                <field name="name">pr1_exchange_contact.a_d_tre</field>
+                <field name="model">pr1_exchange_contact.a_d</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="A_D">
+	      				 <field name="a_d_loc" required="1"/>
+					     <field name="a_d_key" required="0"/>   
+					     <field name="a_d_un" required="0"/>
+			             <field name="a_d_mu" required="0"/>                  
+                    </tree>
+                </field>
+            </record>     
+    </data>
+</openerp>

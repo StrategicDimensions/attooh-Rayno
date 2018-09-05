@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data>
+		 <record model="ir.ui.view" id="v_pr1_exchange_contact_usr_f_v">
+                <field name="name">res.users.form</field>
+                <field name="model">res.users</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="base.view_users_form"/>
+                <field name="arch" type="xml">
+             <xpath expr="//page[@name='access_rights']" position="after" >
+            
+                    <page string="AD Details">
+                    	<group>
+	                        <group string="">
+		                   		<field name="ad_e" required="0"/>
+		                   		<field name="syn_e" required="0"/>
+			                  
+		                    </group>
+		                    <group string="">
+		                    <field name="ex_validated" required="0"/>
+		                   
+		                    </group>
+                        </group>
+                    </page>
+                </xpath>
+                </field>
+            </record>    
+    </data>
+</openerp>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+   <data>
+      <record model="ir.ui.view" id="pr1_exchange_contact_settings_tree_view">
+         <field name="name">pr1_exchange_contact.settings</field>
+         <field name="model">pr1_exchange_contact.settings</field>
+         <field name="type">tree</field>
+         <field name="arch" type="xml">
+            <tree string="Settings">
+               <field name="user_name"/>
+            <field name="imp_usr" />   
+               
+                              
+            </tree>
+         </field>
+      </record>      
+      
+      <record model="ir.ui.view" id="pr1_exchange_contact_settings_form_view">
+         <field name="name">pr1_exchange_contact.settings.form</field>
+         <field name="model">pr1_exchange_contact.settings</field>
+         <field name="type">form</field>
+         <field name="arch" type="xml">
+            <form string="Settings">
+            	<sheet>
+            	<group>
+ 					<field name="state"  string="State" readonly="1"/>
+            	</group>
+            	
+            	<notebook>
+            	<page string="General Setup">
+            		<group>
+                    		<p>If you do not have User name/access code - leave them blank and you will be signed up for the free trial, 1 user, 10 contacts limit, calendar sync and sent item email sync</p>
+                    		<p>The impersonate user is a user in Exchange/Office 365 that is used to impersonate all the other users. This allows the user to act as a sync user. A Test user is another user name/email address that the system will validate the impersonate account with. For more setup help please go: <a target="_blank" href="http://pr1.xyz/page/exchange-office-365-sync" >here</a></p>
+                    	
+                    </group>
+                    <group>
+                    	
+                        <group>
+                        
+                                <field name="user_name"  required="0"/>
+                            	<field name="access_code"   required="0"/>
+                            	<field name="url"   required="0"/>      
+                       
+                        </group>
+                        <group>
+                                                    
+                            <field name="imp_usr"   required="1"/>    
+                            <field name="imp_pass" password="True"   required="1"/>
+                            <field name="test_usr"   required="1"/>
+                            <field name="ews_path" />
+                        
+                        </group>
+                    </group>
+                     <group>
+                    <p>Warning if you force a sync from exchange this will force a sync from Exchange for all users and depending on numbers may take some time. After the sync is complete you can then run a Calendar sync to bring the new data into Odoo.</p>
+		        	<!-- <button type="object" string="Test Connection" class="oe_highlight" name="test_connection" attrs="{'invisible':['|',('state','!=','draft')]}"/> -->
+		        	<button type="object" string="Test Connection" class="oe_highlight" name="test_connection" attrs="{'invisible':['|',('state','=','1draft')]}"/>
+		        	<button type="object" string="Validate Users" class="oe_highlight" name="validate_users" attrs="{'invisible':['|',('state','=','draft')]}"/>
+		        	<button type="object" string="Test Contact Sync" class="oe_highlight" name="test_sync"  attrs="{'invisible':['|',('state','=','draft')]}"/>
+		        	<button type="object" string="Test Calendar Sync" class="oe_highlight" name="test_csync"  attrs="{'invisible':['|',('state','=','draft')]}"/>
+		        	<button type="object" string="Force Sync From Exchange" class="oe_highlight" name="ex_sync"  attrs="{'invisible':['|',('state','=','draft')]}"/>
+		        	
+		        	<button type="object" string="Reset All" class="oe_highlight" name="reset_all"  attrs="{'invisible':['|',('state','=','draft')]}"/>
+		        
+                   </group>
+                
+                   </page>
+                   <page string="Sync Details">
+                   <group>
+                        <group>
+                                <field name="sync_user_count" readonly="1"  />
+                            	<field name="last_number_synced"  readonly="1"  />
+                            	<field name="last_cal_number_synced"  readonly="1"  />
+                            	<field name="last_cal_from_ex_number_synced"  readonly="1"  />
+                            	   
+                        		<field name="sync_partner_count"   readonly="1"/> 
+                        </group>
+                        <group>                            
+                              
+                            <field name="contact_limit"  readonly="1"/>
+                            <field name="user_limit"    readonly="1"/>
+                            <field name="last_sync_time"  readonly="1"/>
+                            <field name="last_cal_sync_time"  readonly="1"/>
+                            
+                        
+                        </group>
+                        <group>   
+                      
+                        <field name="lasterrorlog"  readonly="1"/>
+                        <field name="lastcal_errorlog"  String="Last Calendar Error" readonly="1"/>
+                        
+                        </group>
+                    </group>
+                   </page>
+                   <page string="Email Sync">
+                   <group>
+                                      <p>Email sync enables the emails that you send in Odoo to appear in your sent items box in Exchange. This allows you to review all emails sent out by you in Odoo and to have one picture of what you have been doing from both within Odoo and Out.</p>
+                   <p>To setup, provided you have got the license for this feature. Please enter a min email sync date. This prevents all sent items ever in the system from adding to your sent box(strongly recommended).</p>
+                   <p>Click 'Setup Email Sync' button. If this is successful click, 'Test Email Sync'. If this is successful then the Last number of emails synced to sent from exchange should have a non zero value.</p>
+	                   
+                   </group>
+	                   <group>
+	                   
+	                   		<group>
+	                   		  <field name="email_sync_status"  readonly="1"/>
+	                   		    <field name="enable_email_sync" />
+		                   		<field name="email_sync_min_date" />
+		                   		<field name="last_email_number_synced" readonly="1"/>
+		                   		
+	                   		</group>
+	                   		<group>
+	                       	
+			    			</group>
+			    		</group>
+					    <group>
+					    <button type="object" string="Setup Email Sync" class="oe_highlight" name="setup_email_sync"  attrs="{'invisible':[('state','=','draft')]}"/>
+					    			<button type="object" string="Test Email Sync" class="oe_highlight" name="test_email_sync"  attrs="{'invisible':[('state','=','draft')]}"/>
+					    </group>
+                   </page>
+                   </notebook>
+                     
+                </sheet>
+              
+            </form>
+         </field>
+      </record>
+      
+
+      
+   </data>
+</openerp>

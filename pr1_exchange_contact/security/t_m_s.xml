@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<openerp>
+    <data noupdate="0">
+    
+    <record model="ir.module.category" id="pr1_exchange_contact_sync_main">
+            <field name="name">Exchange Contact Sync</field>
+        </record>
+        <record model="res.groups" id="pr1_exchange_contact_c">
+            <field name="name">Exchange Contact User</field>
+            <field name="category_id" eval="ref('pr1_exchange_contact_sync_main')"/>
+        </record>
+        <record model="res.groups" id="g_pr1_exchange_contact_grp_adm">
+            <field name="name">Exchange Contact Admin</field>
+            <field name="category_id" eval="ref('pr1_exchange_contact_sync_main')"/>
+        </record>
+      </data>
+  </openerp>

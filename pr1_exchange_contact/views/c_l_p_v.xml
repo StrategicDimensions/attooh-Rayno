@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+		 <record model="ir.ui.view" id="v_pr1_exchange_contact_c_l_p_frm">
+                <field name="name">pr1_exchange_contact.c_l_p_form</field>
+                <field name="model">pr1_exchange_contact.c_l_p</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+	               <form string="C_L_P">
+	               <group>
+                       <group string="">
+                     <field name="name" required="1"/>
+                     <field name="partner_id" required="0"/>
+                       </group>
+                       <group string="">
+                           <field name="c_l_id" required="0"/>
+                           <field name="syn" required="0"/>
+                       </group>
+		           </group> 
+	                <notebook>
+		                <page string="General">
+		                        
+		                </page>
+				   	</notebook>
+				   </form>
+               	</field>
+            </record>    
+            <record model="ir.ui.view" id="v_pr1_exchange_contact_c_l_p_tre">
+                <field name="name">pr1_exchange_contact.c_l_p_tre</field>
+                <field name="model">pr1_exchange_contact.c_l_p</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="C_L_P">
+	      				 <field name="name" required="1"/>
+					     <field name="partner_id" required="0"/>   
+					     <field name="c_l_id" required="0"/>
+			             <field name="syn" required="0"/>                  
+                    </tree>
+                </field>
+            </record>     
+    </data>
+</openerp>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data> 
+		 <record model="ir.ui.view" id="view_users_form_pr1_exchange_contact_form_view">
+                <field name="name">res.partner.form</field>
+                <field name="model">res.partner</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="base.view_partner_form"/>
+                <field name="arch" type="xml">
+                
+                <page name="sales_purchases" position="after">
+                   <page string="Contact Lists" groups="pr1_exchange_contact.g_pr1_exchange_contact_grp_adm">
+	                   <field name="c_l_p_ids" String="On Contact Lists" >
+	                          <tree string="EALs" editable="bottom" context="{'default_partner_id':parent.id}">
+	                          		<field name="c_l_id" nolabel="1"  string="Contact List Name"/>	    
+	                           	
+	
+	                           </tree>
+	                   </field>
+	                    <field name="is_on_user" invisible="1"/>
+               			 <!-- <field name="is_on_global" invisible="1"/> -->
+			        </page>
+               </page>
+             		<notebook position="after">
+             		<group>
+ 
+ 					<button type="object" string="Add To My Contact List" class="oe_highlight" name="add_to_my_contact_list1" attrs="{'invisible':['|',('is_on_user','=',True),('is_company','=',True)]}"/>
+<!-- 		       		<button type="object" string="Add To Global" class="oe_highlight" name="add_to_global_list1" attrs="{'invisible':['|',('is_on_global','=',True),('is_company','=',True)]}"/> -->
+ 
+             		<button type="object" string="Add All Contacts To My Contact List" class="oe_highlight" name="add_all_to_my_contact_list" attrs="{'invisible':['|',('is_on_user','=',True),('is_company','=',False)]}"/>
+             		<!--  <button type="object" string="Add All Company Contacts To Global" class="oe_highlight" name="add_all_to_global_list" attrs="{'invisible':['|',('is_on_global','=',True),('is_company','=',False)]}"/>-->
+             		
+		       			
+ 					<button type="object" string="Remove From Contact List" class="oe_highlight" name="remove_from_my_contact_list" attrs="{'invisible':['|',('is_on_user','=',False),('is_company','=',True)]}"/>
+		       		<!-- <button type="object" string="Remove From Global" class="oe_highlight" name="remove_from_global_list" attrs="{'invisible':['|',('is_on_global','=',False),('is_company','=',True)]}"/>\ -->
+ 
+             		<button type="object" string="Remove All From My Contact List" class="oe_highlight" name="remove_all_from_my_contact_list" attrs="{'invisible':['|',('is_on_user','=',False),('is_company','=',False)]}"/>
+             		<!-- <button type="object" string="Remove All Contact From Global" class="oe_highlight" name="remove_all_from_global_list" attrs="{'invisible':['|',('is_on_global','=',False),('is_company','=',False)]}"/> -->
+             		
+		       		</group>
+		
+		  			</notebook>
+               <xpath expr="//field[@name='child_ids']/form/sheet/field[@name='supplier']" position="before" >
+               			 <field name="is_on_user" invisible="1"/>
+               			 <!-- <field name="is_on_global" invisible="1"/> -->
+               			<field name="c_l_p_ids" String="On Contact Lists" groups="pr1_exchange_contact.g_pr1_exchange_contact_grp_adm">
+               			
+		                          <tree string="EALs" editable="bottom" context="{'default_partner_id':parent.id}">
+		                          		<field name="c_l_id" nolabel="1" string="Contact List Name"/>	    
+		                           	
+		
+		                           </tree>
+		                   </field>
+		                   
+		       <button type="object" string="Add To My Contact List" class="oe_highlight" name="add_to_my_contact_list" attrs="{'invisible':['|',('is_on_user','=',True)]}"/>
+		       <!-- <button type="object" string="Add To Global" class="oe_highlight" name="add_to_global_list" attrs="{'invisible':['|',('is_on_global','=',True)]}"/> -->
+		       <button type="object" string="Remove From Contact List" class="oe_highlight" name="remove_from_my_contact_list1" attrs="{'invisible':['|',('is_on_user','=',False)]}"/>
+		       <!-- <button type="object" string="Remove From Global" class="oe_highlight" name="remove_from_global_list1" attrs="{'invisible':['|',('is_on_global','=',False)]}"/> -->
+ 
+               </xpath>
+              
+	               
+             </field>
+         
+            </record>   
+    
+    </data>
+</openerp>

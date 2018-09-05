@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+		 <record model="ir.ui.view" id="v_pr1_exchange_contact_c_l_u_frm">
+               <field name="name">pr1_exchange_contact.c_l_u_form</field>
+               <field name="model">pr1_exchange_contact.c_l_u</field>
+               <field name="type">form</field>
+               <field name="arch" type="xml">
+               <form string="C_L">
+					<group>
+						<group string="">
+							<field name="name" required="1"/>
+							<field name="user_id" required="0"/>
+						</group>
+						<group string="">
+							             
+						</group>
+	                </group>
+			        <notebook>
+			                <page string="General">
+			               
+			                </page>
+					</notebook>
+			   	</form>
+              	</field>
+           </record>    
+           <record model="ir.ui.view" id="v_pr1_exchange_contact_c_l_u_tre">
+               <field name="name">pr1_exchange_contact.c_l_u_tre</field>
+               <field name="model">pr1_exchange_contact.c_l_u</field>
+               <field name="type">tree</field>
+               <field name="arch" type="xml">
+                   <tree string="C_L">
+                       <field name="name"/>
+                       <field name="user_id"/>
+                       <field name="c_l_id"/>                        
+                   </tree>
+               </field>
+           </record>     
+    </data>
+</openerp>

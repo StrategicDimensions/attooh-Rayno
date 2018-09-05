@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>       
+    <data> <record model="ir.ui.view" id="v_cal_event_form_edit">
+	            <field name="name">Calendar - Event Form</field>
+        		<field name="model">calendar.event</field>
+	         <field name="type">form</field>
+	         <field name="inherit_id" ref="calendar.view_calendar_event_form" />
+  <field name="priority" eval="1"/>
+	         <field name="arch" type="xml">
+	       	<xpath expr="//field[@name='description']" position="replace" >
+                		<field name="description" type="html"/>
+                	</xpath>
+	        </field>
+        </record>   
+		 <record model="ir.ui.view" id="v_pr1_exchange_contact_c_l_frm">
+	         <field name="name">pr1_exchange_contact.c_l_form</field>
+	         <field name="model">pr1_exchange_contact.c_l</field>
+	         <field name="type">form</field>
+	         <field name="arch" type="xml">
+	         <form string="C_L_P">
+	          	<group>
+		               		<group string="">
+		                     	<field name="name" required="1"/>
+		                     	<field name="owner_id" required="0"/>
+		                     	<field name="r_w_to_o" required="0"/>
+		                    </group>
+	                       <group string="">
+	                           <field name="d_l" required="0"/>
+	                           <field name="ad_id" required="0" invisible="1"/>
+	                           <field name="g_l" required="0"/>    
+	                       </group>
+		                </group>
+		         <notebook>
+		         	<page string="General">
+		                  
+		           	</page>
+				</notebook>
+			</form>
+	        </field>
+        </record>    
+        <record model="ir.ui.view" id="v_pr1_exchange_contact_c_l_tre">
+	        <field name="name">pr1_exchange_contact.c_l_tre</field>
+	        <field name="model">pr1_exchange_contact.c_l</field>
+	        <field name="type">tree</field>
+	        <field name="arch" type="xml">
+	            <tree string="C_L">
+	                <field name="name"/>
+	                <field name="owner_id"/>
+	                <field name="r_w_to_o"/>
+	                <field name="d_l"/>
+	                <field name="g_l"/>
+	            </tree>
+	        </field>
+        </record>     
+    </data>
+</openerp>
